@@ -18,6 +18,7 @@ require('lualine').setup {
         globalstatus = true,
     },
     sections = {
+        lualine_b = { 'branch', 'b:gitsigns_status', 'diagnostics' },
         lualine_c = { '%f' },
         lualine_x = { 'b:toggle_number', 'encoding', 'fileformat', 'filetype' }
     }
@@ -95,7 +96,7 @@ require('gitsigns').setup {
             vim.schedule(function() gs.prev_hunk() end)
         end, map_opts)
 
-        vim.keymap.set('n', '<leader>gb', ':Gitsigns toggle_current_line_blame', map_opts)
+        vim.keymap.set('n', '<leader>gb', ':Gitsigns toggle_current_line_blame<CR>', map_opts)
     end
 }
 

@@ -7,9 +7,13 @@ vim.cmd.colorscheme('tokyonight-moon')
 -- transparent = true in setup breaks bufferline, setting bg manually fixes that
 -- remove the background colour behind diagnostic messages
 vim.cmd([[
-    highlight Normal guibg=#222335
-    highlight DiagnosticVirtualTextError guibg=none
-    highlight DiagnosticVirtualTextWarn guibg=none
-    highlight DiagnosticVirtualTextInfo guibg=none
-    highlight DiagnosticVirtualTextHint guibg=none
+    hi Normal guibg=#222335
+
+    hi DiagnosticVirtualTextError guibg=none
+    hi DiagnosticVirtualTextWarn guibg=none
+    hi DiagnosticVirtualTextInfo guibg=none
+    hi DiagnosticVirtualTextHint guibg=none
+
+    hi GitSignsAdd guifg=#c3e88d
+    hi DiffDelete guifg=#c53b53
 ]])
