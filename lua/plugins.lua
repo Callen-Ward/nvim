@@ -1,54 +1,51 @@
-local Plug = vim.fn['plug#']
+return require('packer').startup(function(use)
+    use 'wbthomason/packer.nvim'
 
-vim.call('plug#begin', '~/.config/nvim/plugged')
+    -- library
+    use 'nvim-lua/plenary.nvim'
 
--- library
-Plug('nvim-lua/plenary.nvim')
+    -- misc
+    use 'Yggdroot/indentLine'
+    use 'airblade/vim-gitgutter'
+    use 'sheerun/vim-polyglot'
+    use 'preservim/nerdcommenter'
+    use 'norcalli/nvim-colorizer.lua'
+    use 'nvim-lualine/lualine.nvim'
+    use 'akinsho/bufferline.nvim'
+    use 'windwp/nvim-autopairs'
+    use 'akinsho/toggleterm.nvim'
 
--- misc
-Plug('Yggdroot/indentLine')
-Plug('airblade/vim-gitgutter')
-Plug('sheerun/vim-polyglot')
-Plug('preservim/nerdcommenter')
-Plug('norcalli/nvim-colorizer.lua')
-Plug('hrsh7th/vim-vsnip')
-Plug('nvim-lualine/lualine.nvim')
-Plug('akinsho/bufferline.nvim')
-Plug('windwp/nvim-autopairs')
-Plug('akinsho/toggleterm.nvim')
+    -- themes
+    use 'folke/tokyonight.nvim'
 
--- NvimTree
-Plug('nvim-tree/nvim-tree.lua')
-Plug('nvim-tree/nvim-web-devicons')
+    -- NvimTree
+    use 'nvim-tree/nvim-tree.lua'
+    use 'nvim-tree/nvim-web-devicons'
 
--- telescope
-Plug('nvim-telescope/telescope-fzf-native.nvim', {
-        ['do'] = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
-})
-Plug('nvim-telescope/telescope.nvim', { branch = '0.1.x' })
+    -- telescope
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run =
+        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+    }
+    use { 'nvim-telescope/telescope.nvim', branch = '0.1.x' }
 
--- treesitter
-Plug('nvim-treesitter/nvim-treesitter')
+    -- treesitter
+    use 'nvim-treesitter/nvim-treesitter'
 
--- Themes
-Plug('joshdick/onedark.vim')
-Plug('folke/tokyonight.nvim', { branch = 'main' })
+    -- lsp
+    use 'neovim/nvim-lspconfig'
+    use 'jose-elias-alvarez/null-ls.nvim'
+    use 'simrat39/rust-tools.nvim'
 
--- lsp
-Plug('neovim/nvim-lspconfig')
-Plug('jose-elias-alvarez/null-ls.nvim')
+    -- autocomplete
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-buffer'
 
--- autocomplete
-Plug('hrsh7th/nvim-cmp')
-Plug('hrsh7th/cmp-nvim-lsp')
-Plug('hrsh7th/cmp-vsnip')
-Plug('hrsh7th/cmp-path')
-Plug('hrsh7th/cmp-buffer')
-
--- snippets
-Plug('rafamadriz/friendly-snippets')
-
--- rust
-Plug('simrat39/rust-tools.nvim')
-
-vim.call('plug#end')
+    -- snippets
+    use 'hrsh7th/vim-vsnip'
+    use 'rafamadriz/friendly-snippets'
+end)
