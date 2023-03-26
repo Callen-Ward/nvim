@@ -7,7 +7,6 @@ return require('packer').startup(function(use)
     -- misc
     use 'Yggdroot/indentLine'
     use { 'lewis6991/gitsigns.nvim', tag = 'release' }
-    use 'sheerun/vim-polyglot'
     use 'preservim/nerdcommenter'
     use 'norcalli/nvim-colorizer.lua'
     use 'nvim-lualine/lualine.nvim'
