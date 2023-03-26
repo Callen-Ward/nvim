@@ -82,6 +82,23 @@ require('nvim-tree').setup {
     }
 }
 
+require('gitsigns').setup {
+    on_attach = function(bufnr)
+        local gs = package.loaded.gitsigns
+        local map_opts = { noremap = true, silent = true, buffer = bufnr }
+
+        -- navigation
+        vim.keymap.set('n', ']c', function()
+            vim.schedule(function() gs.next_hunk() end)
+        end, map_opts)
+        vim.keymap.set('n', '[c', function()
+            vim.schedule(function() gs.prev_hunk() end)
+        end, map_opts)
+
+        vim.keymap.set('n', '<leader>gb', ':Gitsigns toggle_current_line_blame', map_opts)
+    end
+}
+
 require('nvim-web-devicons').setup {}
 require('nvim-autopairs').setup {}
 require('colorizer').setup()
