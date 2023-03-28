@@ -1,5 +1,4 @@
 -- functional
-vim.opt.linebreak = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
@@ -15,6 +14,7 @@ vim.opt.smartcase = true
 vim.opt.showmatch = true
 
 -- cosmetic
+vim.opt.linebreak = true
 vim.opt.showmode = false
 vim.opt.number = true
 vim.opt.wrap = false
