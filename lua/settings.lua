@@ -5,7 +5,6 @@ vim.opt.tabstop = 4
 vim.opt.expandtab = true
 vim.opt.scrolloff = 8
 vim.opt.mousemodel = 'extend'
-vim.cmd('filetype plugin indent on')
 vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
 vim.opt.shortmess = vim.opt.shortmess + 'c'
 
