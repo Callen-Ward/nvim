@@ -61,7 +61,7 @@ rt.setup { server = { on_attach = on_attach, capabilities = capabilities } }
 lsp.lua_ls.setup {
     settings = {
         Lua = {
-            diagnostics = { globals = { 'vim', "awesome" } },
+            diagnostics = { globals = { 'vim', "awesome", "client" } },
             workspace = {
                 library = vim.api.nvim_get_runtime_file('', true),
                 checkThirdParty = false
