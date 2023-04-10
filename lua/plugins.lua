@@ -5,7 +5,7 @@ return require('packer').startup(function(use)
     use 'nvim-lua/plenary.nvim'
 
     -- misc
-    use 'Yggdroot/indentLine'
+    use 'lukas-reineke/indent-blankline.nvim'
     use { 'lewis6991/gitsigns.nvim', tag = 'release' }
     use 'preservim/nerdcommenter'
     use 'norcalli/nvim-colorizer.lua'

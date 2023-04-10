@@ -1,3 +1,8 @@
+require('indent_blankline').setup {
+    char = '▏',
+    show_current_context = true,
+}
+
 require('nvim-treesitter.configs').setup {
     ensure_installed = { 'lua', 'rust', 'typescript', 'javascript' },
     auto_install = true,

@@ -22,7 +22,6 @@ vim.opt.signcolumn = 'yes'
 vim.opt.showcmd = false
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
-vim.g.indentLine_char = '▏'
 require('tokyonight_config')
 
 if vim.g.neovide then
