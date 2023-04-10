@@ -4,6 +4,7 @@ require('nvim-treesitter.configs').setup {
 
     highlight = {
         enable = true,
+        disable = { 'json' }
     },
     indent = {
         enable = true
