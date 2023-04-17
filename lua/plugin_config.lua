@@ -95,6 +95,9 @@ require('nvim-tree').setup {
         change_dir = {
             global = true
         }
+    },
+    git = {
+        ignore = false
     }
 }
 
