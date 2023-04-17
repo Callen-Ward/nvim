@@ -17,9 +17,3 @@ vim.api.nvim_create_autocmd({ 'VimEnter' }, {
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
     command = 'setlocal formatoptions-=ro',
 })
-
-vim.api.nvim_create_autocmd({ 'TermOpen' }, {
-    callback = function()
-        vim.cmd('IndentLinesDisable')
-    end
-})
