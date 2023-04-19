@@ -7,8 +7,9 @@ vim.api.nvim_create_autocmd({ 'VimEnter' }, {
             vim.cmd.NvimTreeOpen()
             vim.api.nvim_buf_delete(emptybuffer, {})
         end
-        if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv()[1]) ~= 0 then
-            vim.cmd.NvimTreeOpen()
+        local argv = vim.fn.argv()
+        if vim.fn.argc() == 1 and vim.fn.isdirectory(argv[1]) ~= 0 then
+            vim.cmd.NvimTreeOpen({ path = argv[1] })
         end
     end
 })
