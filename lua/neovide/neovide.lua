@@ -1,4 +1,5 @@
 vim.opt.guifont = 'FiraCode Nerd Font:h11'
+vim.opt.title = true
 
 vim.g.neovide_hide_mouse_when_typing = true
 vim.g.neovide_underline_automatic_scaling = true
