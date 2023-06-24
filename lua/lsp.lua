@@ -52,11 +52,12 @@ local function on_attach(_, bufnr)
 end
 
 local null_ls = require('null-ls')
-null_ls.setup { sources = { null_ls.builtins.formatting.standardjs } }
+null_ls.setup { sources = { null_ls.builtins.formatting.prettier, } }
 
--- make it run in standalone if not in module tree
-local rt = require('rust-tools')
-rt.setup { server = { on_attach = on_attach, capabilities = capabilities } }
+lsp.rust_analyzer.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
 
 lsp.lua_ls.setup {
     settings = {
