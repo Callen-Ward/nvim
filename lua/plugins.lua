@@ -35,7 +35,6 @@ return require('packer').startup(function(use)
     -- lsp
     use 'neovim/nvim-lspconfig'
     use 'jose-elias-alvarez/null-ls.nvim'
-    use 'simrat39/rust-tools.nvim'
 
     -- autocomplete
     use 'hrsh7th/nvim-cmp'
