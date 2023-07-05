@@ -1,7 +1,7 @@
+local lsp = require('lspconfig')
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-local lsp = require('lspconfig')
 
 -- remove diagnostic characters from sign column and highlight line numbers of diagnostics
 local dsigns = { 'DiagnosticSignError', 'DiagnosticSignWarn', 'DiagnosticSignHint', 'DiagnosticSignInfo' }
@@ -24,11 +24,10 @@ local function format(bufnr)
     }
 end
 
-local set_lsp_mappings = require("mappings").set_lsp_mappings
 local function on_attach(_, bufnr)
     -- keymaps
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    set_lsp_mappings(bufopts, format)
+    require("mappings").set_lsp_mappings(bufopts, format)
 
     -- format on save
     vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
@@ -39,11 +38,6 @@ end
 
 local null_ls = require('null-ls')
 null_ls.setup { sources = { null_ls.builtins.formatting.prettier, } }
-
-lsp.rust_analyzer.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
 
 lsp.lua_ls.setup {
     settings = {
@@ -59,6 +53,8 @@ lsp.lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities
 }
+
+lsp.rust_analyzer.setup { on_attach = on_attach, capabilities = capabilities, }
 
 lsp.tsserver.setup { on_attach = on_attach, capabilities = capabilities }
 
