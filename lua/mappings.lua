@@ -66,7 +66,7 @@ M.treesitter_keymaps = {
 }
 
 -- cmp
-local cmp = require("cmp")
+local cmp = require('cmp')
 M.cmp_mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
