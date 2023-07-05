@@ -23,3 +23,9 @@ vim.opt.showcmd = false
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 require('themes.tokyonight')
+vim.cmd([[
+    hi DiagnosticVirtualTextError guibg=none
+    hi DiagnosticVirtualTextWarn guibg=none
+    hi DiagnosticVirtualTextInfo guibg=none
+    hi DiagnosticVirtualTextHint guibg=none
+]])
