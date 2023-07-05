@@ -57,6 +57,43 @@ vim.cmd('snoremap <expr> <Tab>   vsnip#jumpable(1)  ? "<Plug>(vsnip-jump-next)" 
 vim.cmd('inoremap <expr> <S-Tab> vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"')
 vim.cmd('snoremap <expr> <S-Tab> vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"')
 
+-- treesitter
+M.treesitter_keymaps = {
+    init_selection = 'gnn',
+    node_incremental = 'grn',
+    scope_incremental = 'grc',
+    node_decremental = 'grm',
+}
+
+-- cmp
+local cmp = require("cmp")
+M.cmp_mapping = {
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+    ['<Tab>'] = cmp.mapping.select_next_item(),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = false,
+    }),
+}
+
+-- gitsigns on_attach
+M.set_gitsigns_mappings = function(bufopts, gs)
+    vim.keymap.set('n', ']c', function()
+        vim.schedule(function() gs.next_hunk() end)
+    end, bufopts)
+    vim.keymap.set('n', '[c', function()
+        vim.schedule(function() gs.prev_hunk() end)
+    end, bufopts)
+
+    vim.keymap.set('n', '<leader>gb', ':Gitsigns toggle_current_line_blame<CR>', bufopts)
+end
+
 -- lsp on_attach
 M.set_lsp_mappings = function(bufopts, format)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
