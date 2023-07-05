@@ -11,7 +11,7 @@ end
 
 -- format the current buffer using null-ls config if available, otherwise use
 -- any other available formatter
-local function lsp_formatting(bufnr)
+local function format(bufnr)
     vim.lsp.buf.format {
         filter = function(client)
             local null_ls = vim.lsp.get_active_clients({ name = 'null-ls' })[1]
@@ -24,30 +24,16 @@ local function lsp_formatting(bufnr)
     }
 end
 
+local set_lsp_mappings = require("mappings").set_lsp_mappings
 local function on_attach(_, bufnr)
     -- keymaps
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder,
-        bufopts)
-    vim.keymap.set('n', '<space>wl', function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, bufopts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>f', function() lsp_formatting() end, bufopts)
+    set_lsp_mappings(bufopts, format)
 
     -- format on save
     vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
         buffer = bufnr,
-        callback = function() lsp_formatting(bufnr) end
+        callback = function() format(bufnr) end
     })
 end
 

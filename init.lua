@@ -3,7 +3,7 @@ vim.g.loaded_netrwPlugin = 1
 
 require('plugins')
 require('settings')
+require('mappings')
 require('plugin_config')
 require('lsp')
-require('mappings')
 require('autocmds')
