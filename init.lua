@@ -7,3 +7,9 @@ require('mappings')
 require('plugin_config')
 require('lsp')
 require('autocmds')
+
+if vim.g.neovide then
+    require('neovide.neovide')
+else
+    require('neovide.notneovide')
+end

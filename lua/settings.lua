@@ -23,9 +23,3 @@ vim.opt.showcmd = false
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 require('tokyonight_config')
-
-if vim.g.neovide then
-    require('neovide.neovide')
-else
-    require('neovide.notneovide')
-end
