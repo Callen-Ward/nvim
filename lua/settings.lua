@@ -22,4 +22,4 @@ vim.opt.signcolumn = 'yes'
 vim.opt.showcmd = false
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
-require('tokyonight_config')
+require('themes.tokyonight')
