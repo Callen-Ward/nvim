@@ -37,12 +37,10 @@ vim.keymap.set('n', '<M-n>', ':NvimTreeFindFile<CR>', map_opts)
 -- NERDCommenter
 -- set twice for compatibility
 vim.keymap.set('i', '<c-_>', '<ESC><PLUG>NERDCommenterTogglei', map_opts)
-vim.keymap.set('n', '<c-_>', '<PLUG>NERDCommenterToggle', map_opts)
-vim.keymap.set('v', '<c-_>', '<PLUG>NERDCommenterToggle', map_opts)
+vim.keymap.set({ 'n', 'v' }, '<c-_>', '<PLUG>NERDCommenterToggle', map_opts)
 
 vim.keymap.set('i', '<c-/>', '<ESC><PLUG>NERDCommenterTogglei', map_opts)
-vim.keymap.set('n', '<c-/>', '<PLUG>NERDCommenterToggle', map_opts)
-vim.keymap.set('v', '<c-/>', '<PLUG>NERDCommenterToggle', map_opts)
+vim.keymap.set({ 'n', 'v' }, '<c-/>', '<PLUG>NERDCommenterToggle', map_opts)
 
 -- telescope
 local builtin = require('telescope.builtin')
