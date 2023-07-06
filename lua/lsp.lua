@@ -36,28 +36,36 @@ local function on_attach(_, bufnr)
     })
 end
 
+require('mason-lspconfig').setup {
+    ensure_installed = { 'lua_ls', 'rust_analyzer', 'tsserver', 'html', 'cssls' }
+}
+
+require('mason-null-ls').setup {
+    ensure_installed = { 'prettier' }
+}
+
 local null_ls = require('null-ls')
 null_ls.setup { sources = { null_ls.builtins.formatting.prettier, } }
 
-lsp.lua_ls.setup {
-    settings = {
-        Lua = {
-            diagnostics = { globals = { 'vim', 'awesome', 'client', 'root', 'screen' } },
-            workspace = {
-                library = vim.api.nvim_get_runtime_file('', true),
-                checkThirdParty = false
+require('mason-lspconfig').setup_handlers {
+    function(server_name)
+        lsp[server_name].setup { on_attach = on_attach, capabilities = capabilities, }
+    end,
+
+    ['lua_ls'] = function()
+        lsp.lua_ls.setup {
+            settings = {
+                Lua = {
+                    diagnostics = { globals = { 'vim', 'awesome', 'client', 'root', 'screen' } },
+                    workspace = {
+                        library = vim.api.nvim_get_runtime_file('', true),
+                        checkThirdParty = false
+                    },
+                    telemetry = { enable = false }
+                }
             },
-            telemetry = { enable = false }
+            on_attach = on_attach,
+            capabilities = capabilities
         }
-    },
-    on_attach = on_attach,
-    capabilities = capabilities
+    end
 }
-
-lsp.rust_analyzer.setup { on_attach = on_attach, capabilities = capabilities, }
-
-lsp.tsserver.setup { on_attach = on_attach, capabilities = capabilities }
-
-lsp.html.setup { on_attach = on_attach, capabilities = capabilities }
-
-lsp.cssls.setup { on_attach = on_attach, capabilities = capabilities }

@@ -35,6 +35,12 @@ return require('packer').startup(function(use)
     -- lsp
     use 'neovim/nvim-lspconfig'
     use 'jose-elias-alvarez/null-ls.nvim'
+    use {
+        'williamboman/mason.nvim',
+        run = ':MasonUpdate'
+    }
+    use 'williamboman/mason-lspconfig.nvim'
+    use 'jay-babu/mason-null-ls.nvim'
 
     -- autocomplete
     use 'hrsh7th/nvim-cmp'

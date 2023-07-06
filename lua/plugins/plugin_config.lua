@@ -92,6 +92,16 @@ require('gitsigns').setup {
     end
 }
 
+require('mason').setup {
+    ui = {
+        icons = {
+            package_installed = '✓',
+            package_pending = '➜',
+            package_uninstalled = '✗'
+        }
+    }
+}
+
 require('nvim-web-devicons').setup {}
 require('nvim-autopairs').setup {}
 require('colorizer').setup()
