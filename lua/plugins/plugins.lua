@@ -10,7 +10,6 @@ return require('packer').startup(function(use)
     use 'preservim/nerdcommenter'
     use 'norcalli/nvim-colorizer.lua'
     use 'nvim-lualine/lualine.nvim'
-    use 'akinsho/bufferline.nvim'
     use 'windwp/nvim-autopairs'
     use 'akinsho/toggleterm.nvim'
 

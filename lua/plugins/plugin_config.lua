@@ -35,12 +35,6 @@ require('lualine').setup {
     }
 }
 
-require('bufferline').setup {
-    options = {
-        mode = 'tabs'
-    }
-}
-
 local cmp = require('cmp')
 cmp.setup({
     preselect = cmp.PreselectMode.None,
