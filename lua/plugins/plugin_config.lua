@@ -39,7 +39,7 @@ require('lualine').setup {
 }
 
 local cmp = require('cmp')
-cmp.setup({
+cmp.setup {
     preselect = cmp.PreselectMode.None,
     snippet = {
         expand = function(args)
@@ -53,7 +53,7 @@ cmp.setup({
         { name = 'path' },
         { name = 'buffer' },
     },
-})
+}
 
 require('toggleterm').setup {
     size = 20,
@@ -101,4 +101,4 @@ require('mason').setup {
 
 require('nvim-web-devicons').setup {}
 require('nvim-autopairs').setup {}
-require('colorizer').setup()
+require('colorizer').setup {}
