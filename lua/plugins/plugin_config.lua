@@ -1,7 +1,7 @@
 local mappings = require('mappings')
 
-require('indent_blankline').setup {
-    char = '▏',
+require('ibl').setup {
+    scope = { enabled = false }
 }
 
 require('nvim-treesitter.configs').setup {
