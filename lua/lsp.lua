@@ -37,11 +37,11 @@ local function on_attach(_, bufnr)
 end
 
 require('mason-lspconfig').setup {
-    ensure_installed = { 'lua_ls', 'rust_analyzer', 'tsserver', 'html', 'cssls' }
+    ensure_installed = {}
 }
 
 require('mason-null-ls').setup {
-    ensure_installed = { 'prettier' }
+    ensure_installed = {}
 }
 
 local null_ls = require('null-ls')
