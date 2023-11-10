@@ -5,7 +5,7 @@ require('ibl').setup {
 }
 
 require('nvim-treesitter.configs').setup {
-    ensure_installed = { 'lua', 'rust', 'typescript', 'javascript' },
+    ensure_installed = {},
     sync_install = false,
     auto_install = true,
     ignore_install = {},
