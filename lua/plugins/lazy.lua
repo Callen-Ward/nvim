@@ -31,7 +31,7 @@ require('lazy').setup {
     -- themes
     'folke/tokyonight.nvim',
 
-    -- tvimTree
+    -- nvimTree
     'nvim-tree/nvim-tree.lua',
     'nvim-tree/nvim-web-devicons',
 
