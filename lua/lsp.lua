@@ -57,10 +57,13 @@ require('mason-lspconfig').setup_handlers {
         lsp.lua_ls.setup {
             settings = {
                 Lua = {
-                    diagnostics = { globals = { 'vim', 'awesome', 'client', 'root', 'screen' } },
+                    diagnostics = { globals = {} },
                     workspace = {
-                        library = vim.api.nvim_get_runtime_file('', true),
-                        checkThirdParty = false
+                        checkThirdParty = false,
+
+                        library = {
+                            vim.env.VIMRUNTIME,
+                        },
                     },
                     telemetry = { enable = false }
                 }
