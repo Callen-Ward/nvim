@@ -45,6 +45,7 @@ require('lazy').setup {
 
     -- treesitter
     'nvim-treesitter/nvim-treesitter',
+    'nvim-treesitter/nvim-treesitter-context',
 
     -- lsp,
     'neovim/nvim-lspconfig',
