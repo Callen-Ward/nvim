@@ -2,7 +2,7 @@ require('tokyonight').setup {
     lualine_bold = true,
 }
 
-vim.cmd.colorscheme('tokyonight-moon')
+vim.cmd.colorscheme('tokyonight-night')
 
 -- change gitsigns highlighting to match theme
 vim.cmd([[
